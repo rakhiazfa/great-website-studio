@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * 
+ * Great Website Studio
+ * 
+ * @author Rakhi Azfa Rifansya
+ * 
+ */
+
+use GreatWebsiteStudio\Helpers\ClassLoader;
+use Symfony\Component\Console\Application;
+
+require_once __DIR__ . '/master/application.php';
+
+
+$application = new Application();
+
+/**
+ * Register application commands.
+ */
+
+$commands = ClassLoader::load('Application\Commands');
+
+foreach ($commands as $command) {
+
+    $application->add($command);
+}
+
+/**
+ * Run the console application.
+ * 
+ */
+
+$application->run();

@@ -1,0 +1,103 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+.page-loader {
+    position: fixed;
+    top: 0;
+    inset: 0;
+    height: 100%;
+    background-color: white;
+    z-index: 10000;
+}
+
+.page-loader .page-loader-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-loader .page-loader-wrapper .spinner {
+    width: 90px;
+    height: 90px;
+}
+
+/* Typography */
+
+.text-xxs {
+    font-size: 0.65rem !important;
+    line-height: 0.9rem !important;
+}
+
+.text-xs {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+}
+
+.text-sm {
+    font-size: 0.85rem !important;
+    line-height: 1.25rem !important;
+}
+
+.text-md {
+    font-size: 1rem !important;
+    line-height: 1.5rem !important; 
+}
+
+.text-lg {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+}
+
+.text-wrap {
+    white-space: normal !important;
+}
+
+/* Table */
+
+.table td, .table th {
+    padding-top: 0.95rem !important;
+    padding-bottom: 0.95rem !important;
+}
+
+/* Image */
+
+.preview-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.25rem;
+}
+
+/* Product */
+
+.product-image {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+}
+
+.product-image-sm {
+    width: 50px;
+    height: 50px;
+    border-radius: .25rem !important;
+    margin-right: 1rem;
+    object-fit: cover;
+    object-position: center;
+}

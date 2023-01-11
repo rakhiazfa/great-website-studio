@@ -1,0 +1,21 @@
+{
+    "name": "great-website-studio/great-website-studio",
+    "autoload": {
+        "psr-4": {
+            "GreatWebsiteStudio\\": "src/",
+            "Application\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rakhi Azfa Rifansya",
+            "email": "rakhiazfa0421@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "symfony/console": "^6.2",
+        "symfony/finder": "^6.2",
+        "latte/latte": "^3.0"
+    }
+}

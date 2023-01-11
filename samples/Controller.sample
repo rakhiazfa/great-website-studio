@@ -1,0 +1,20 @@
+<?php
+
+namespace Application\Controllers{{Namespace}};
+
+use GreatWebsiteStudio\Request\Request;
+use GreatWebsiteStudio\Response\Response;
+
+class {{ControllerName}}
+{
+    /**
+     * @param Request $request
+     * @param Response $response
+     * 
+     * @return Response
+     */
+    public function index(Request $request, Response $response)
+    {
+        //
+    }
+}
