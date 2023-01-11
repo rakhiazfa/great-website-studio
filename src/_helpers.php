@@ -21,6 +21,6 @@ if (!function_exists('env')) {
     function env(string $key, mixed $default = null)
     {
 
-        return $_ENV[$key] ?? $default;
+        return getenv($key) ?? $default;
     }
 }
