@@ -21,7 +21,7 @@ class CreateCommand extends Command
         $this->setName('create:command')
             ->setDescription('Create a new studio command.')
             ->setHelp('This command helps you to create a new studio command.')
-            ->addArgument('classname', InputArgument::REQUIRED, 'The name of the command class.')
+            ->addArgument('name', InputArgument::REQUIRED, 'The name of the command class.')
             ->addOption('name', null, InputOption::VALUE_OPTIONAL, 'The name of the command to be created.');
     }
 
@@ -33,7 +33,7 @@ class CreateCommand extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $className = $input->getArgument('classname');
+        $className = $input->getArgument('name');
         $commandName = $input->getOption('name') ?? null;
 
         $namespace = null;

@@ -20,7 +20,7 @@ class CreateController extends Command
         $this->setName('create:controller')
             ->setDescription('Create a new controller.')
             ->setHelp('This command helps you to create a new controller.')
-            ->addArgument('classname', InputArgument::REQUIRED, 'The name of the controller class.');
+            ->addArgument('name', InputArgument::REQUIRED, 'The name of the controller class.');
     }
 
     /**
@@ -31,7 +31,7 @@ class CreateController extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $className = $input->getArgument('classname');
+        $className = $input->getArgument('name');
 
         $namespace = null;
         $className = explode('/', $className);
