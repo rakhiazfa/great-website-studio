@@ -18,8 +18,8 @@ class CreateController extends Command
     public function configure()
     {
         $this->setName('create:controller')
-            ->setDescription('Create a new studio controller.')
-            ->setHelp('This command helps you to create a new studio controller.')
+            ->setDescription('Create a new controller.')
+            ->setHelp('This command helps you to create a new controller.')
             ->addArgument('classname', InputArgument::REQUIRED, 'The name of the controller class.');
     }
 
