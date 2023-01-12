@@ -80,6 +80,15 @@ class Database
 		 */
 
 		$this->getConnection();
+
+		/**
+		 * Setup migration.
+		 * 
+		 */
+
+		Migration::setConnection($this->connection);
+
+		Migration::setup();
 	}
 
 	/**
