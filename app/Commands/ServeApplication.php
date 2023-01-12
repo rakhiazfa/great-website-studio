@@ -16,7 +16,9 @@ class ServeApplication extends Command
      */
     public function configure()
     {
-        $this->setName('serve');
+        $this->setName('serve')
+            ->setDescription('Serve the application.')
+            ->setHelp('This command helps you to serve the application.');
     }
 
     /**
