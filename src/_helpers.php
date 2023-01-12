@@ -23,4 +23,21 @@ if (!function_exists('env')) {
 
         return getenv($key) ?? $default;
     }
+
+    /**
+     * Get asset url.
+     * 
+     * @param string $asset
+     * 
+     * @return string
+     */
+    function asset(string $asset)
+    {
+        if ($asset[0] === '/') {
+
+            $asset = substr($asset, 1, strlen($asset));
+        }
+
+        return env('APP_URL') . '/' . $asset;
+    }
 }
