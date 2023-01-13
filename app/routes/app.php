@@ -14,3 +14,5 @@ use GreatWebsiteStudio\Routing\Route;
  */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::post('/send-message', [HomeController::class, 'sendMessage']);

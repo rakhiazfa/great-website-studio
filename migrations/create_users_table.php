@@ -14,7 +14,7 @@ class create_users_table
             password VARCHAR(255) NOT NULL,
             role_id INT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (role_id) REFERENCES roles (id)
+            CONSTRAINT `role_id_fk` FOREIGN KEY (role_id) REFERENCES roles (id)
         )");
     }
 
@@ -23,6 +23,7 @@ class create_users_table
      */
     public function down(PDO $connection)
     {
+        $connection->exec("ALTER TABLE users DROP FOREIGN KEY `role_id_fk`");
         $connection->exec("DROP TABLE IF EXISTS users");
     }
 }

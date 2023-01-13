@@ -24,7 +24,13 @@
 
         <hr>
 
-        <section class="mt-5">
+        <section class="section mt-5">
+
+            <h3 class="section-title">Messages</h3>
+
+            {foreach $messages as $message}
+                <p>{$message['name']} - {$message['message']}</p>
+            {/foreach}
 
             <div class="row">
 
@@ -35,8 +41,8 @@
                             <h4>Contact Us</h4>
                         </div>
                         <div class="card-body">
-                            <form class="row" action="" method="POST">
-                                {method('PUT')}
+
+                            <form class="row" action="{env('APP_URL') . '/send-message'}" method="POST">
 
                                 <div class="form-group col-md-6">
                                     <label>Name</label>
