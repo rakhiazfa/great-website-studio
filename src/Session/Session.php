@@ -38,7 +38,7 @@ class Session
     }
 
     /**
-     * Get session value.
+     * Get session.
      * 
      * @param string $key
      * 
@@ -51,7 +51,7 @@ class Session
     }
 
     /**
-     * Set session value.
+     * Set session.
      * 
      * @param string $key
      * @param mixed $value
@@ -62,6 +62,37 @@ class Session
     {
 
         $_SESSION[$key] = $value;
+    }
+
+    /**
+     * Remove session.
+     * 
+     * @param string $key
+     * 
+     * @return void
+     */
+    public function remove(string $key)
+    {
+
+        unset($_SESSION[$key]);
+    }
+
+    /**
+     * Set flash message.
+     * 
+     * @param string $key
+     * @param mixed $value
+     * 
+     * @return mixed
+     */
+    public function flash(string $key, mixed $value = null)
+    {
+        if (!$value) {
+
+            return  $_SESSION[self::FLASH_KEY][$key] ?? null;
+        }
+
+        $_SESSION[self::FLASH_KEY][$key] = $value;
     }
 
     /**
