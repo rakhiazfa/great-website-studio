@@ -58,6 +58,13 @@ class Application
     public function __construct(string $ROOT_DIRECTORY)
     {
         /**
+         * Load helper fuctions.
+         * 
+         */
+
+        require_once __DIR__ . '/../_helpers.php';
+
+        /**
          * Create root directory constant.
          * 
          */
