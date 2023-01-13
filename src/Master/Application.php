@@ -2,6 +2,7 @@
 
 namespace GreatWebsiteStudio\Master;
 
+use GreatWebsiteStudio\Controller\Controller;
 use GreatWebsiteStudio\Database\Database;
 use GreatWebsiteStudio\Request\Request;
 use GreatWebsiteStudio\Response\Response;
@@ -45,6 +46,11 @@ class Application
     public Session $session;
 
     /**
+     * @var Controller
+     */
+    public Controller $controller;
+
+    /**
      * Create a new Application instance.
      * 
      * @param string $ROOT_DIRECTORY
@@ -80,6 +86,13 @@ class Application
         $this->database = new Database();
 
         $this->session = new Session();
+
+        $this->controller = new Controller(
+            $this->request,
+            $this->response,
+            $this->database,
+            $this->session,
+        );
 
         /**
          * Set router.
