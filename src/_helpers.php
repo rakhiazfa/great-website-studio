@@ -8,6 +8,8 @@
  * 
  */
 
+use GreatWebsiteStudio\Master\Application;
+
 if (!function_exists('env')) {
 
     /**
@@ -52,5 +54,18 @@ if (!function_exists('env')) {
     {
 
         echo "<input type='hidden' name='_method' value='$method'>";
+    }
+
+    /**
+     * Get flash message.
+     * 
+     * @param string $key
+     * 
+     * @return mixed
+     */
+    function flash(string $key)
+    {
+
+        return Application::session()->flash($key) ?? null;
     }
 }
