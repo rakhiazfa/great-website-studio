@@ -23,32 +23,32 @@ class Application
     /**
      * @var Request
      */
-    public Request $request;
+    private Request $request;
 
     /**
      * @var Response
      */
-    public Response $response;
+    private Response $response;
 
     /**
      * @var Router
      */
-    public Router $router;
+    private Router $router;
 
     /**
      * @var Database
      */
-    public Database $database;
+    private Database $database;
 
     /**
      * @var Session
      */
-    public Session $session;
+    private Session $session;
 
     /**
-     * @var Controller
+     * @var Application
      */
-    public Controller $controller;
+    private static Application $application;
 
     /**
      * Create a new Application instance.
@@ -87,19 +87,14 @@ class Application
 
         $this->session = new Session();
 
-        $this->controller = new Controller(
-            $this->request,
-            $this->response,
-            $this->database,
-            $this->session,
-        );
-
         /**
          * Set router.
          * 
          */
 
         Route::setRouter($this->router);
+
+        self::$application = $this;
     }
 
     /**
@@ -115,5 +110,49 @@ class Application
          */
 
         $this->router->resolve();
+    }
+
+    /**
+     * Get request service.
+     * 
+     * @return Request
+     */
+    public static function request()
+    {
+
+        return self::$application->request;
+    }
+
+    /**
+     * Get response service.
+     * 
+     * @return Response
+     */
+    public static function response()
+    {
+
+        return self::$application->response;
+    }
+
+    /**
+     * Get database service.
+     * 
+     * @return Database
+     */
+    public static function database()
+    {
+
+        return self::$application->database;
+    }
+
+    /**
+     * Get session service.
+     * 
+     * @return Session
+     */
+    public static function session()
+    {
+
+        return self::$application->session;
     }
 }
