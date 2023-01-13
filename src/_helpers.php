@@ -40,4 +40,17 @@ if (!function_exists('env')) {
 
         return env('APP_URL') . '/' . $asset;
     }
+
+    /**
+     * Return field to override request method.
+     * 
+     * @param string $method
+     * 
+     * @return void
+     */
+    function method(string $method)
+    {
+
+        echo "<input type='hidden' name='_method' value='$method'>";
+    }
 }

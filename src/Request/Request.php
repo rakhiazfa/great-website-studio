@@ -12,13 +12,25 @@ namespace GreatWebsiteStudio\Request;
 
 class Request
 {
+    protected array $allowedMethods = ["GET", "POST", "PUT", "PATCH", "DELETE"];
+
     /**
      * Create a new Request instance.
      * 
      */
     public function __construct()
     {
-        // 
+        $_method = $_REQUEST["_method"] ?? null;
+
+        if ($_method) {
+
+            if (!in_array(strtoupper($_method), $this->allowedMethods)) {
+
+                die("The $_method method is not registered.");
+            }
+
+            $_SERVER['REQUEST_METHOD'] = strtoupper($_method);
+        }
     }
 
     /**
