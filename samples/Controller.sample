@@ -2,10 +2,11 @@
 
 namespace Application\Controllers{{Namespace}};
 
+use GreatWebsiteStudio\Controller\Controller;
 use GreatWebsiteStudio\Request\Request;
 use GreatWebsiteStudio\Response\Response;
 
-class {{ControllerName}}
+class {{ControllerName}} extends Controller
 {
     /**
      * @param Request $request
