@@ -59,4 +59,22 @@ class Response
 
         $this->latte->render($view . '.latte', $data);
     }
+
+    /**
+     * Redirecting user.
+     * 
+     * @param string $to
+     * 
+     * @return void
+     */
+    public function redirect(string $to = '/')
+    {
+        if ($to[0] === '/') {
+
+            $to = substr($to, 1, strlen($to));
+        }
+
+        header('Location: ' . env('APP_URL') . '/' . $to);
+        die();
+    }
 }
