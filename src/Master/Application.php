@@ -7,6 +7,7 @@ use GreatWebsiteStudio\Request\Request;
 use GreatWebsiteStudio\Response\Response;
 use GreatWebsiteStudio\Routing\Router;
 use GreatWebsiteStudio\Routing\Route;
+use GreatWebsiteStudio\Session\Session;
 
 /**
  * 
@@ -39,19 +40,17 @@ class Application
     public Database $database;
 
     /**
+     * @var Session
+     */
+    public Session $session;
+
+    /**
      * Create a new Application instance.
      * 
      * @param string $ROOT_DIRECTORY
      */
     public function __construct(string $ROOT_DIRECTORY)
     {
-        /**
-         * Load helper fuctions.
-         * 
-         */
-
-        require_once __DIR__ . '/../_helpers.php';
-
         /**
          * Create root directory constant.
          * 
@@ -72,6 +71,8 @@ class Application
         $this->router = new Router($this->request, $this->response);
 
         $this->database = new Database();
+
+        $this->session = new Session();
 
         /**
          * Set router.

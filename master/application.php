@@ -22,6 +22,13 @@ $dotenv = Dotenv\Dotenv::createUnsafeImmutable(dirname(__DIR__));
 $dotenv->safeLoad();
 
 /**
+ * Load helper fuctions.
+ * 
+ */
+
+require_once dirname(__DIR__) . '/src/_helpers.php';
+
+/**
  * Create application instance.
  * 
  */
