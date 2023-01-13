@@ -27,3 +27,10 @@ $dotenv->safeLoad();
  */
 
 $application = new GreatWebsiteStudio\Master\Application(dirname(__DIR__));
+
+/**
+ * Load helper fuctions.
+ * 
+ */
+
+require_once dirname(__DIR__) . '/src/_helpers.php';

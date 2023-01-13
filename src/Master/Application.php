@@ -51,19 +51,17 @@ class Application
     private static Application $application;
 
     /**
+     * @var Session
+     */
+    public Session $session;
+
+    /**
      * Create a new Application instance.
      * 
      * @param string $ROOT_DIRECTORY
      */
     public function __construct(string $ROOT_DIRECTORY)
     {
-        /**
-         * Load helper fuctions.
-         * 
-         */
-
-        require_once __DIR__ . '/../_helpers.php';
-
         /**
          * Create root directory constant.
          * 
