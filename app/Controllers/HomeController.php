@@ -2,10 +2,11 @@
 
 namespace Application\Controllers;
 
+use GreatWebsiteStudio\Controller\Controller;
 use GreatWebsiteStudio\Request\Request;
 use GreatWebsiteStudio\Response\Response;
 
-class HomeController
+class HomeController extends Controller
 {
     /**
      * @param Request $request
@@ -15,6 +16,11 @@ class HomeController
      */
     public function index(Request $request, Response $response)
     {
+        echo '<pre>';
+        var_dump($_SESSION);
+        echo '</pre>';
+
+        die();
 
         return $response->view('home', ['title' => 'Home']);
     }
