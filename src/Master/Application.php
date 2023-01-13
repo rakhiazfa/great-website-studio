@@ -7,6 +7,7 @@ use GreatWebsiteStudio\Request\Request;
 use GreatWebsiteStudio\Response\Response;
 use GreatWebsiteStudio\Routing\Router;
 use GreatWebsiteStudio\Routing\Route;
+use GreatWebsiteStudio\Session\Session;
 
 /**
  * 
@@ -37,6 +38,11 @@ class Application
      * @var Database
      */
     public Database $database;
+
+    /**
+     * @var Session
+     */
+    public Session $session;
 
     /**
      * Create a new Application instance.
@@ -72,6 +78,8 @@ class Application
         $this->router = new Router($this->request, $this->response);
 
         $this->database = new Database();
+
+        $this->session = new Session();
 
         /**
          * Set router.
