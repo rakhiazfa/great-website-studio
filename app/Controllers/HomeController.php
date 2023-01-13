@@ -16,11 +16,6 @@ class HomeController extends Controller
      */
     public function index(Request $request, Response $response)
     {
-        echo '<pre>';
-        var_dump($_SESSION);
-        echo '</pre>';
-
-        die();
 
         return $response->view('home', ['title' => 'Home']);
     }
