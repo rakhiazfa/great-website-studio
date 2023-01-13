@@ -74,7 +74,7 @@ class Model extends Database
 
         foreach ($registeredAttributes as $attribute) {
 
-            $statement->bindParam($key, $attributes[$attribute], $this->checkType($attributes[$attribute]));
+            $statement->bindParam($attribute, $attributes[$attribute], $this->checkType($attributes[$attribute]));
         }
 
         /**
@@ -122,7 +122,7 @@ class Model extends Database
 
         foreach ($registeredAttributes as $attribute) {
 
-            $statement->bindParam($key, $attributes[$attribute], $this->checkType($attributes[$attribute]));
+            $statement->bindParam($attribute, $attributes[$attribute], $this->checkType($attributes[$attribute]));
         }
 
         $statement->bindParam('id', $id, PDO::PARAM_INT);
