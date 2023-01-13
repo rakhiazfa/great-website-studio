@@ -51,11 +51,6 @@ class Application
     private static Application $application;
 
     /**
-     * @var Session
-     */
-    public Session $session;
-
-    /**
      * Create a new Application instance.
      * 
      * @param string $ROOT_DIRECTORY
