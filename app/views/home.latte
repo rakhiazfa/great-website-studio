@@ -28,6 +28,12 @@
 
             <h3 class="section-title">Messages</h3>
 
+            {if hasFlash('success')}
+            <div class="alert alert-success" role="alert">
+                {flash('success')}
+            </div>
+            {/if}
+
             {foreach $messages as $message}
                 <p>{$message['name']} - {$message['message']}</p>
             {/foreach}

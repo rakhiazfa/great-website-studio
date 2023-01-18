@@ -10,62 +10,73 @@
 
 use GreatWebsiteStudio\Master\Application;
 
-if (!function_exists('env')) {
 
-    /**
-     * Get env configuration.
-     * 
-     * @param string $key
-     * @param mixed $default
-     * 
-     * @return mixed
-     */
-    function env(string $key, mixed $default = null)
-    {
+/**
+ * Get env configuration.
+ * 
+ * @param string $key
+ * @param mixed $default
+ * 
+ * @return mixed
+ */
+function env(string $key, mixed $default = null)
+{
 
-        return getenv($key) ?? $default;
+    return getenv($key) ?? $default;
+}
+
+/**
+ * Get asset url.
+ * 
+ * @param string $asset
+ * 
+ * @return string
+ */
+function asset(string $asset)
+{
+    if ($asset[0] === '/') {
+
+        $asset = substr($asset, 1, strlen($asset));
     }
 
-    /**
-     * Get asset url.
-     * 
-     * @param string $asset
-     * 
-     * @return string
-     */
-    function asset(string $asset)
-    {
-        if ($asset[0] === '/') {
+    return env('APP_URL') . '/' . $asset;
+}
 
-            $asset = substr($asset, 1, strlen($asset));
-        }
+/**
+ * Return field to override request method.
+ * 
+ * @param string $method
+ * 
+ * @return void
+ */
+function method(string $method)
+{
 
-        return env('APP_URL') . '/' . $asset;
-    }
+    echo "<input type='hidden' name='_method' value='$method'>";
+}
 
-    /**
-     * Return field to override request method.
-     * 
-     * @param string $method
-     * 
-     * @return void
-     */
-    function method(string $method)
-    {
+/**
+ * Get flash message.
+ * 
+ * @param string $key
+ * 
+ * @return mixed
+ */
+function flash(string $key)
+{
 
-        echo "<input type='hidden' name='_method' value='$method'>";
-    }
+    return Application::session()->flash($key) ?? null;
+}
 
-    /**
-     * Get flash message.
-     * 
-     * @param string $key
-     * 
-     * @return mixed
-     */
-    function flash(string $key)
-    {
+/**
+ * Check flash message.
+ * 
+ * @param string $key
+ * 
+ * @return mixed
+ */
+function hasFlash(string $key)
+{
 
-        return Application::session()->flash($key) ?? null;
-    }
+    return Application::session()->hasFlash($key) ?? null;
 }

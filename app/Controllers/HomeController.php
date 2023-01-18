@@ -17,6 +17,10 @@ class HomeController extends Controller
      */
     public function index(Request $request, Response $response)
     {
+        echo '<pre>';
+        var_dump($_SESSION);
+        echo '</pre>';
+
         $messages = (new Message)->all();
 
         return $response->view('home', ['title' => 'Home', 'messages' => $messages]);
@@ -35,6 +39,8 @@ class HomeController extends Controller
             'email' => $_POST['email'],
             'message' => $_POST['message'],
         ]);
+
+        $this->session->flash('success', 'Message has ben sended.');
 
         return $response->redirect();
     }

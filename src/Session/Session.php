@@ -32,7 +32,10 @@ class Session
 
         $session = $_SESSION;
 
-        $session[self::FLASH_KEY] = [];
+        if (count($session[self::FLASH_KEY]) <= 0) {
+
+            $session[self::FLASH_KEY] = [];
+        }
 
         $_SESSION = $session;
     }
@@ -89,10 +92,27 @@ class Session
     {
         if (!$value) {
 
-            return  $_SESSION[self::FLASH_KEY][$key] ?? null;
+            $_SESSION[self::FLASH_KEY][$key]['called'] = true;
+
+            return  $_SESSION[self::FLASH_KEY][$key]['value'] ?? null;
         }
 
-        $_SESSION[self::FLASH_KEY][$key] = $value;
+        $_SESSION[self::FLASH_KEY][$key]['value'] = $value;
+        $_SESSION[self::FLASH_KEY][$key]['called'] = false;
+    }
+
+    /**
+     * Check flash message.
+     * 
+     * @param string $key
+     * @param mixed $value
+     * 
+     * @return mixed
+     */
+    public function hasFlash(string $key)
+    {
+
+        return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;
     }
 
     /**
@@ -107,7 +127,11 @@ class Session
 
         $session = $_SESSION;
 
-        unset($session[self::FLASH_KEY]);
+        foreach ($session[self::FLASH_KEY] as $key => $value) {
+            if ($value['called']) {
+                unset($session[self::FLASH_KEY][$key]);
+            }
+        }
 
         $_SESSION = $session;
     }
