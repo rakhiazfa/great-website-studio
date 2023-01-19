@@ -32,7 +32,7 @@ class Session
 
         $session = $_SESSION;
 
-        if (count($session[self::FLASH_KEY]) <= 0) {
+        if (count($session[self::FLASH_KEY] ?? []) <= 0) {
 
             $session[self::FLASH_KEY] = [];
         }
